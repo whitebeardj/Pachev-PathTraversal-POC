@@ -43,7 +43,7 @@ def main(ip,port,*args):   #main
     print("  (!!) Pachev FTP Path Traversal (!!) \n  ** POC by Whitebeard (Yonatan K) \n ")
     try:
         connection = FTP()
-        connection.connect(str(ip),port)
+        connection.connect(str(ip),int(port))
         connection.login('pachev', '')
         ftpc = FTPc(connection)
     except Exception as exp:
